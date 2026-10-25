@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tailor Measure BD</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1 data-i18n="appTitle">Tailor Measure BD</h1>
+    <p class="sub" data-i18n="appSub">Tailor measurement &amp; order tracker for Bangladeshi tailoring shops</p>
+  </div>
+  <button class="btn" id="langBtn" type="button">&#2476;&#2494;&#2434;&#2482;&#2494;</button>
+</header>
+
+<main id="main">
+  <section aria-label="Dashboard">
+    <h2 data-i18n="dash">Dashboard</h2>
+    <div class="stats">
+      <div class="stat"><span class="num" id="statCustomers">0</span><span data-i18n="totalCustomers">Customers</span></div>
+      <div class="stat"><span class="num" id="statActive">0</span><span data-i18n="activeOrders">Active orders</span></div>
+      <div class="stat"><span class="num warn" id="statOverdue">0</span><span data-i18n="overdue">Overdue deliveries</span></div>
+      <div class="stat"><span class="num" id="statDueToday">0</span><span data-i18n="dueToday">Due today</span></div>
+      <div class="stat"><span class="num" id="statDue">&#2547;0.00</span><span data-i18n="totalDue">Total due (active)</span></div>
+    </div>
+  </section>
+
+  <section aria-label="Add customer">
+    <h2 data-i18n="addCustomer">Add customer</h2>
+    <div id="formWrap"></div>
+  </section>
+
+  <section aria-label="Customers">
+    <h2 data-i18n="totalCustomers">Customers</h2>
+    <input id="searchInput" type="search" data-i18n-ph="search" placeholder="Search name, mobile or garment&#8230;">
+    <div class="row wrap filters" role="group">
+      <button class="btn small chipbtn active" data-filter="all" data-i18n="filterAll" type="button">All</button>
+      <button class="btn small chipbtn" data-filter="pending" data-i18n="status_pending" type="button">Pending</button>
+      <button class="btn small chipbtn" data-filter="cutting" data-i18n="status_cutting" type="button">Cutting</button>
+      <button class="btn small chipbtn" data-filter="stitching" data-i18n="status_stitching" type="button">Stitching</button>
+      <button class="btn small chipbtn" data-filter="ready" data-i18n="status_ready" type="button">Ready</button>
+      <button class="btn small chipbtn" data-filter="delivered" data-i18n="status_delivered" type="button">Delivered</button>
+    </div>
+    <div id="list"></div>
+  </section>
+
+  <section aria-label="Data">
+    <h2 data-i18n="data">Data</h2>
+    <div class="row wrap">
+      <button class="btn" id="exportBtn" data-i18n="exportBtn" type="button">Export JSON</button>
+      <label class="btn filebtn"><span data-i18n="importBtn">Import JSON</span><input id="importFile" type="file" accept="application/json,.json" hidden></label>
+      <button class="btn danger" id="eraseBtn" data-i18n="eraseBtn" type="button">Erase all data</button>
+    </div>
+    <p id="dataMsg" role="status"></p>
+  </section>
+
+  <footer><p data-i18n="footer">Offline personal tool for tailoring shops. Measurements are in inches. Always re-check measurements before cutting cloth.</p></footer>
+</main>
+
+<div id="printArea"></div>
+
+<script src="logic.js"></script>
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
